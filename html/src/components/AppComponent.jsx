@@ -23,8 +23,6 @@ const AppComponent = () => {
   }
 
   window.addEventListener('message', (event) => {
-    console.log(event)
-    console.log(event.data.type)
     if (event.data.type === 'open') {
       setVisible(true)
     }

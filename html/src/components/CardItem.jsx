@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
+import styles from './CardItem.module.css'
 
 const CardItem = (props) => {
   const [itens, setItens] = useState({
     'Ak-47': {
       ingredientes: [
-       ["30 und de Aço","10 und de Plastico", "25 und de Ferro"]
+        "30 und de Aço",
+        "10 und de Plastico",
+        "25 und de Ferro"
       ]
     },
     'Pistol_mk2': {
       ingredientes: [
-        ["20 und de Aço","5 und de Plastico", "15 und de Ferro"]
+        "20 und de Aço",
+        "5 und de Plastico",
+        "15 und de Ferro"
       ]
     }
   });
@@ -18,9 +23,9 @@ const CardItem = (props) => {
     const item = itens[props.nomeItem];
     if (item) {
       return (
-        <ul>
+        <ul className={styles.ul_box}>
           {item.ingredientes.map((ingrediente, index) => (
-            <li key={index}>{ingrediente}</li>
+            <li className={styles.li_item} key={index}>{ingrediente}</li>
           ))}
         </ul>
       );
@@ -29,17 +34,22 @@ const CardItem = (props) => {
     }
   }
 
+  function craftar (){
+    console.log("craftou!", props.nomeItem)
+  }
+
   return (
-    <div>
-      <div className="img">
-        <img src={props.imagem} alt='AK-47' />
+    <div className={styles.container}>
+      <div className={styles.box_img}>
+        <img className={styles.img} src={props.imagem} alt={props.nomeItem} />
       </div>
 
-      <div className="box_craft">
-        <div className="header">
-          <h3>props.nomeItem</h3>
+      <div className={styles.box_craft}>
+        <div className={styles.header}>
+          <h3>{props.nomeItem}</h3>
+          <button onClick={craftar()} className={styles.btn_montar}>MONTAR</button>
         </div>
-        <div className="ingredientes">
+        <div className={styles.ingredintes}>
           {retornaLista()}
         </div>
       </div>

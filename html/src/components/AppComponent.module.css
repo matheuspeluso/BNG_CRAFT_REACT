@@ -1,11 +1,11 @@
 .nui{
-    background-color: red;
-    width: 50vw;
-    max-width: 800px;
-    height: 70vh;
     border: 2px solid #fff;
     padding: 25px;
     color: #fff;
+    border: 2px solid red;
+    width: 50vw;
+    max-width: 800px;
+    height: 70vh;
 }
 
 .container{
