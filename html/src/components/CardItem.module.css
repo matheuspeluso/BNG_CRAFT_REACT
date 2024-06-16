@@ -4,12 +4,12 @@
     padding: 10px;
     display: flex;
     justify-content: space-around;
-    border: 2px solid green;
     margin-bottom: 12px;
+    width: inherit;
 }
 
 .box_img{
-    background-color: rgba(71, 74, 81, 0.7);
+    background-color: rgba(0,0,0,0.7);
     width: 200px;
     text-align: center;
     padding: 10px;
