@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './CardItem.module.css'
+// import useEnviarDadosParaJogo from '../hooks/useEnviarDadosParaJogo';
 
 const CardItem = (props) => {
   const [itens, setItens] = useState({
@@ -19,6 +20,14 @@ const CardItem = (props) => {
     }
   });
 
+  function enviarDadosParaoJogo(path, dados) {
+    let config = {
+        method: 'POST', headers: { 'Content-Type': 'application/json; charset=UTF-8', },
+        body: JSON.stringify(dados)
+    }
+    fetch(`https://${GetParentResourceName()}/${path}`, config)
+  }
+
   function retornaLista() {
     const item = itens[props.nomeItem];
     if (item) {
@@ -35,8 +44,9 @@ const CardItem = (props) => {
   }
 
   function craftar(nomeItem) {
-    console.log("craftou!", nomeItem);
-    // Aqui você pode enviar um postMessage ou realizar qualquer outra ação com o nome do item
+    console.log(nomeItem)
+    let name = nomeItem
+    enviarDadosParaoJogo('itemCraft',{item: name});
   }
 
 

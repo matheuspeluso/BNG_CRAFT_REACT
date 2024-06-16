@@ -30,3 +30,13 @@ end)
 RegisterNUICallback('fecharTela', function ()
     SetNuiFocus(false,false)
 end)
+
+RegisterNUICallback('itemCraft',function (data,cb)
+    local item = data.item;
+    print("Item recebido:", item)
+    if item == 'Ak-47' then
+        TriggerServerEvent('crafting','WEAPON_ASSAULTRIFLE')
+    elseif item == 'Pistol_mk2' then
+        TriggerServerEvent('crafting','WEAPON_PISTOL_MK2')
+    end
+end)
