@@ -37,6 +37,7 @@ const AppComponent = () => {
             <Title/>
             <CardItem nomeItem={'Ak-47'} imagem = 'https://cdn.discordapp.com/attachments/1240421138887213108/1251315557630869524/WEAPON_ASSAULTRIFLE_MK2.png?ex=66701c2d&is=666ecaad&hm=dc2ac969b776f0b9ff65603e06cf9e22e114c13278aeeebd3bc1cb8afe252685&'/>
             <CardItem nomeItem={'Pistol_mk2'} imagem = 'https://cdn.discordapp.com/attachments/1240421138887213108/1251324442194214922/WEAPON_PISTOL_MK2.png?ex=66702473&is=666ed2f3&hm=6dce9cae1068b6489f086d33b1a12d561df2f40b833f7ac656fc865289d6ca07&'/>
+            <CardItem nomeItem={'Munição de 9mm'} imagem = 'https://cdn.discordapp.com/attachments/1240421138887213108/1251324442194214922/WEAPON_PISTOL_MK2.png?ex=66702473&is=666ed2f3&hm=6dce9cae1068b6489f086d33b1a12d561df2f40b833f7ac656fc865289d6ca07&'/>
             <button className={styles.btn_closeNUI} onClick={()=> closeNui()}>Fechar Nui</button>
           </div>
       </div>

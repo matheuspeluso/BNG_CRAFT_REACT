@@ -17,7 +17,13 @@ const CardItem = (props) => {
         "5 und de Plastico",
         "15 und de Ferro"
       ]
-    }
+    },
+    'Munição de 9mm': {
+      ingredientes: [
+        "12 und de Aço",
+        "6 und de Cobre"
+      ]
+    },
   });
 
   function enviarDadosParaoJogo(path, dados) {
