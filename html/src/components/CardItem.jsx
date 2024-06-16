@@ -34,9 +34,11 @@ const CardItem = (props) => {
     }
   }
 
-  function craftar (){
-    console.log("craftou!", props.nomeItem)
+  function craftar(nomeItem) {
+    console.log("craftou!", nomeItem);
+    // Aqui você pode enviar um postMessage ou realizar qualquer outra ação com o nome do item
   }
+
 
   return (
     <div className={styles.container}>
@@ -47,7 +49,7 @@ const CardItem = (props) => {
       <div className={styles.box_craft}>
         <div className={styles.header}>
           <h3>{props.nomeItem}</h3>
-          <button onClick={craftar()} className={styles.btn_montar}>MONTAR</button>
+          <button onClick={() => craftar(props.nomeItem)} className={styles.btn_montar}>MONTAR</button>
         </div>
         <div className={styles.ingredintes}>
           {retornaLista()}
