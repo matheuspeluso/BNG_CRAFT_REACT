@@ -32,7 +32,8 @@ const AppComponent = () => {
 
   if (visible){
     return(
-      <div className= {styles.container}>
+      <div className={styles.container_pai}>
+        <div className= {styles.container}>
           <div className={styles.nui}>
             <Title/>
             <CardItem nomeItem={'Ak-47'} imagem = 'https://cdn.discordapp.com/attachments/1240421138887213108/1251315557630869524/WEAPON_ASSAULTRIFLE_MK2.png?ex=66701c2d&is=666ecaad&hm=dc2ac969b776f0b9ff65603e06cf9e22e114c13278aeeebd3bc1cb8afe252685&'/>
@@ -43,6 +44,7 @@ const AppComponent = () => {
             <CardItem nomeItem={'Lockpick'} imagem = 'https://cdn.discordapp.com/attachments/1240421138887213108/1252036208456896564/WEAPON_SMG.png?ex=6670c115&is=666f6f95&hm=4e12f752b5228df38178ac5b45fb19f00bd93f30df58a67c49b8b915bbd71569&'/>
             <button className={styles.btn_closeNUI} onClick={()=> closeNui()}>Fechar Nui</button>
           </div>
+      </div>
       </div>
       
     )
