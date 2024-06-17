@@ -40,5 +40,12 @@ RegisterNUICallback('itemCraft',function (data,cb)
         TriggerServerEvent('crafting','WEAPON_PISTOL_MK2')
     elseif item == 'Munição de 9mm' then
         TriggerServerEvent('crafting','ammo_9')
+    elseif item == 'Munição de Rifle' then
+        TriggerServerEvent('crafting','ammo_rifle2')
+    elseif item == 'Submetralhadora' then
+        TriggerServerEvent('crafting','WEAPON_SMG')
+    elseif item == 'Lockpick' then
+        TriggerServerEvent('crafting','lockpick')
+
     end
 end)

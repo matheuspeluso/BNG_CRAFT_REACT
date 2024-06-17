@@ -12,8 +12,9 @@
 .container{
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 80vh;
     align-items: center;
+    overflow: auto;
 }
 
 .btn_closeNUI{

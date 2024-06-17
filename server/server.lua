@@ -21,6 +21,25 @@ local itens = {
             { item = "copper", quantidade = 6 },
         }
     },
+    ammo_rifle2 = {
+        ingredientes = {  -- Sub-tabela para os ingredientes
+            { item = "steel", quantidade = 12 },
+            { item = "copper", quantidade = 6 },
+        }
+    },
+    WEAPON_SMG = {
+        ingredientes = {  -- Sub-tabela para os ingredientes
+            { item = "plastic", quantidade = 10 },
+            { item = "iron", quantidade = 15 },
+            { item = "steel", quantidade = 20 }
+        }
+    },
+    lockpick = {
+        ingredientes = {  -- Sub-tabela para os ingredientes
+            { item = "cupper", quantidade = 1 },
+            { item = "steel", quantidade = 5 }
+        }
+    },
 
 }
 
@@ -67,6 +86,20 @@ AddEventHandler('crafting', function(nomeItem)
         exports.ox_inventory:RemoveItem(source, 'copper',6)
         exports.ox_inventory:RemoveItem(source, 'steel', 12)
         exports.ox_inventory:AddItem(source, 'ammo-9', 12)
+
+    elseif HasAllItens('ammo_rifle2',source) and nomeItem == 'ammo_rifle2' then
+        exports.ox_inventory:RemoveItem(source, 'copper',6)
+        exports.ox_inventory:RemoveItem(source, 'steel', 12)
+        exports.ox_inventory:AddItem(source, 'ammo-rifle2', 12)
+    elseif HasAllItens('WEAPON_SMG',source) and nomeItem == 'WEAPON_SMG' then
+        exports.ox_inventory:RemoveItem(source, 'iron',15)
+        exports.ox_inventory:RemoveItem(source, 'steel', 20)
+        exports.ox_inventory:RemoveItem(source, 'plastic', 10)
+        exports.ox_inventory:AddItem(source, 'WEAPON_SMG', 1)
+    elseif HasAllItens('lockpick',source) and nomeItem == 'lockpick' then
+        exports.ox_inventory:RemoveItem(source, 'copper',1)
+        exports.ox_inventory:RemoveItem(source, 'steel', 5)
+        exports.ox_inventory:AddItem(source, 'lockpick', 1)
 
     end
     -- exports['qb-inventory']:RemoveItem(source,'plastic',5,false,'qb-primeiroScripts:testRemove')

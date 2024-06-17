@@ -18,10 +18,30 @@ const CardItem = (props) => {
         "15 und de Ferro"
       ]
     },
+    'Submetralhadora': { //WEAPON_SMG
+      ingredientes: [
+        "20 und de Aço",
+        "10 und de Plastico",
+        "15 und de Ferro"
+      ]
+    },
     'Munição de 9mm': {
       ingredientes: [
         "12 und de Aço",
         "6 und de Cobre"
+      ]
+    },
+
+    'Munição de Rifle': {
+      ingredientes: [
+        "12 und de Aço",
+        "6 und de Cobre"
+      ]
+    },
+    'Lockpick': {
+      ingredientes: [
+        "5 und de Aço",
+        "1 und de Cobre"
       ]
     },
   });
