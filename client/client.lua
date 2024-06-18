@@ -27,10 +27,12 @@ CreateThread(function()
 
 end)
 
+
 local function toggleCraftBNG()
-    QBCore.Functions.Progressbar("craftbng", "Toggling craft bng",5000, false, true, {
+    QBCore.Functions.Progressbar("craftbng", "Montando ...",15000, false, true, {
         disableMovement = true,
         disableCarMovement = true,
+        canCancel = false,
         disableMouse = false,
         disableCombat = true,
     }, {
@@ -41,6 +43,7 @@ local function toggleCraftBNG()
     , {}, {}, function()
     end, function() -- Cancel
         QBCore.Functions.Notify("Canceled", "error")
+        return 'progressbarCancel'
     end, 'fas fa-microchip')
 end
 
@@ -50,7 +53,9 @@ RegisterNUICallback('fecharTela', function ()
 end)
 
 RegisterNetEvent('notify_bng_success', function()
+    -- corrigir erro de quando cancelar receber o item da mesma forma!
     toggleCraftBNG()
+    Wait(15000)
     exports.qbx_core:Notify('Item criado com sucesso!', 'success', 6000, 'Verique na sua bolsa!', 'center-right')
 end)
 
