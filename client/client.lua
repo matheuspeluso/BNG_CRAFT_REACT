@@ -29,15 +29,21 @@ end)
 
 local function toggleCraftBNG()
     QBCore.Functions.Progressbar("craftbng", "Toggling craft bng",5000, false, true, {
-		disableMovement = true,
-		disableCarMovement = true,
-		disableMouse = false,
-		disableCombat = true,
-	}, {}, {}, {}, function()
-	end, function() -- Cancel
-		QBCore.Functions.Notify("Canceled", "error")
-	end, 'fas fa-microchip')
+        disableMovement = true,
+        disableCarMovement = true,
+        disableMouse = false,
+        disableCombat = true,
+    }, {
+        animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@',
+        anim = 'machinic_loop_mechandplayer',
+        flags = 1,
+    }
+    , {}, {}, function()
+    end, function() -- Cancel
+        QBCore.Functions.Notify("Canceled", "error")
+    end, 'fas fa-microchip')
 end
+
 
 RegisterNUICallback('fecharTela', function ()
     SetNuiFocus(false,false)

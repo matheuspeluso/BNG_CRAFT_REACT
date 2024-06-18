@@ -86,38 +86,38 @@ AddEventHandler('crafting', function(nomeItem)
         exports.ox_inventory:RemoveItem(source, 'plastic', 10)
         exports.ox_inventory:RemoveItem(source, 'iron',25)
         exports.ox_inventory:RemoveItem(source, 'steel', 20)
-        exports.ox_inventory:AddItem(source, 'WEAPON_ASSAULTRIFLE', 1)
         TriggerClientEvent('notify_bng_success', source)
+        exports.ox_inventory:AddItem(source, 'WEAPON_ASSAULTRIFLE', 1)
     elseif HasAllItens('WEAPON_PISTOL_MK2',source) and nomeItem == 'WEAPON_PISTOL_MK2' then
         exports.ox_inventory:RemoveItem(source, 'plastic', 5)
         exports.ox_inventory:RemoveItem(source, 'iron',15)
         exports.ox_inventory:RemoveItem(source, 'steel', 20)
-        exports.ox_inventory:AddItem(source, 'WEAPON_PISTOL_MK2', 1)
         TriggerClientEvent('notify_bng_success', source)
+        exports.ox_inventory:AddItem(source, 'WEAPON_PISTOL_MK2', 1)
     elseif HasAllItens('ammo_9',source) and nomeItem == 'ammo_9' then
         exports.ox_inventory:RemoveItem(source, 'copper',6)
         exports.ox_inventory:RemoveItem(source, 'steel', 12)
-        exports.ox_inventory:AddItem(source, 'ammo-9', 12)
         TriggerClientEvent('notify_bng_success', source)
+        exports.ox_inventory:AddItem(source, 'ammo-9', 12)
         
     elseif HasAllItens('ammo_rifle2',source) and nomeItem == 'ammo_rifle2' then
         exports.ox_inventory:RemoveItem(source, 'copper',6)
         exports.ox_inventory:RemoveItem(source, 'steel', 12)
-        exports.ox_inventory:AddItem(source, 'ammo-rifle2', 12)
         TriggerClientEvent('notify_bng_success', source)
+        exports.ox_inventory:AddItem(source, 'ammo-rifle2', 12)
     elseif HasAllItens('WEAPON_SMG',source) and nomeItem == 'WEAPON_SMG' then
         exports.ox_inventory:RemoveItem(source, 'iron',15)
         exports.ox_inventory:RemoveItem(source, 'steel', 20)
         exports.ox_inventory:RemoveItem(source, 'plastic', 10)
-        exports.ox_inventory:AddItem(source, 'WEAPON_SMG', 1)
         TriggerClientEvent('notify_bng_success', source)
+        exports.ox_inventory:AddItem(source, 'WEAPON_SMG', 1)
         
     elseif HasAllItens('lockpick',source) and nomeItem == 'lockpick' then
         print('lockpick no servidor!')
         exports.ox_inventory:RemoveItem(source, 'copper',1)
         exports.ox_inventory:RemoveItem(source, 'steel', 5)
-        exports.ox_inventory:AddItem(source, 'lockpick', 1)
         TriggerClientEvent('notify_bng_success', source)
+        exports.ox_inventory:AddItem(source, 'lockpick', 1)
     else
         TriggerClientEvent('notify_bng_error', source)
     end
