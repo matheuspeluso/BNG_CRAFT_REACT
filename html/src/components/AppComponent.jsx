@@ -41,7 +41,7 @@ const AppComponent = () => {
             <CardItem nomeItem={'Munição de 9mm'} imagem = 'https://cdn.discordapp.com/attachments/1240421138887213108/1251947725767970927/ammo-9.png?ex=66706ead&is=666f1d2d&hm=5485cfe6c14240a48dcb79cf5f1d411db220a2c249a0317ea61963c81c965beb&'/>
             <CardItem nomeItem={'Munição de Rifle'} imagem = 'https://cdn.discordapp.com/attachments/1240421138887213108/1252032494673330327/ammo-rifle2.png?ex=6670bda0&is=666f6c20&hm=7eee87961895b857cf205135df9972f22b7db96dd1a49e64d1137365e73292bf&'/>
             <CardItem nomeItem={'Submetralhadora'} imagem = 'https://cdn.discordapp.com/attachments/1240421138887213108/1252036208456896564/WEAPON_SMG.png?ex=6670c115&is=666f6f95&hm=4e12f752b5228df38178ac5b45fb19f00bd93f30df58a67c49b8b915bbd71569&'/>
-            <CardItem nomeItem={'Lockpick'} imagem = 'https://cdn.discordapp.com/attachments/1240421138887213108/1252036208456896564/WEAPON_SMG.png?ex=6670c115&is=666f6f95&hm=4e12f752b5228df38178ac5b45fb19f00bd93f30df58a67c49b8b915bbd71569&'/>
+            <CardItem nomeItem={'Lockpick'} imagem = 'https://cdn.discordapp.com/attachments/1240421138887213108/1249207739708608512/lockpick.png?ex=6671ab9e&is=66705a1e&hm=42bddde90e425234eef9a87eb95c3caacf7729db33ffbd085ee747a79f747e8f&'/>
             <button className={styles.btn_closeNUI} onClick={()=> closeNui()}>Fechar Nui</button>
           </div>
       </div>

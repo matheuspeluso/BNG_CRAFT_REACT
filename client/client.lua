@@ -31,6 +31,14 @@ RegisterNUICallback('fecharTela', function ()
     SetNuiFocus(false,false)
 end)
 
+RegisterNetEvent('notify_bng_success', function()
+    exports.qbx_core:Notify('Item criado com sucesso!', 'success', 6000, 'Verique na sua bolsa!', 'center-right')
+end)
+
+RegisterNetEvent('notify_bng_error', function()
+    exports.qbx_core:Notify('Você não possui os ingredientes necessários!', 'error', 6000, 'Verique seus ingredientes!', 'center-right')
+end)
+
 RegisterNUICallback('itemCraft',function (data,cb)
     local item = data.item;
     print("Item recebido:", item)
