@@ -27,11 +27,24 @@ CreateThread(function()
 
 end)
 
+local function toggleCraftBNG()
+    QBCore.Functions.Progressbar("craftbng", "Toggling craft bng",5000, false, true, {
+		disableMovement = true,
+		disableCarMovement = true,
+		disableMouse = false,
+		disableCombat = true,
+	}, {}, {}, {}, function()
+	end, function() -- Cancel
+		QBCore.Functions.Notify("Canceled", "error")
+	end, 'fas fa-microchip')
+end
+
 RegisterNUICallback('fecharTela', function ()
     SetNuiFocus(false,false)
 end)
 
 RegisterNetEvent('notify_bng_success', function()
+    toggleCraftBNG()
     exports.qbx_core:Notify('Item criado com sucesso!', 'success', 6000, 'Verique na sua bolsa!', 'center-right')
 end)
 
