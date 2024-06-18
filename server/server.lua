@@ -36,7 +36,7 @@ local itens = {
     },
     lockpick = {
         ingredientes = {  -- Sub-tabela para os ingredientes
-            { item = "cupper", quantidade = 1 },
+            { item = "copper", quantidade = 1 },
             { item = "steel", quantidade = 5 }
         }
     },
@@ -70,6 +70,7 @@ RegisterNetEvent('crafting')
 AddEventHandler('crafting', function(nomeItem)
     
     print('crafting : ', nomeItem);
+    print(HasAllItens('lockpick',source))
     -- HasAllItens({'plastic','copper','iron'});
 
     if HasAllItens('WEAPON_ASSAULTRIFLE',source) and nomeItem == 'WEAPON_ASSAULTRIFLE' then
@@ -96,11 +97,12 @@ AddEventHandler('crafting', function(nomeItem)
         exports.ox_inventory:RemoveItem(source, 'steel', 20)
         exports.ox_inventory:RemoveItem(source, 'plastic', 10)
         exports.ox_inventory:AddItem(source, 'WEAPON_SMG', 1)
+
     elseif HasAllItens('lockpick',source) and nomeItem == 'lockpick' then
+        print('lockpick no servidor!')
         exports.ox_inventory:RemoveItem(source, 'copper',1)
         exports.ox_inventory:RemoveItem(source, 'steel', 5)
         exports.ox_inventory:AddItem(source, 'lockpick', 1)
-
     end
     -- exports['qb-inventory']:RemoveItem(source,'plastic',5,false,'qb-primeiroScripts:testRemove')
     -- exports['qb-inventory']:AddItem(source,'lockpick',1,false,'qb-primeiroScripts:testAdd')

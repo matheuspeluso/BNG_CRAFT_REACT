@@ -45,6 +45,7 @@ RegisterNUICallback('itemCraft',function (data,cb)
     elseif item == 'Submetralhadora' then
         TriggerServerEvent('crafting','WEAPON_SMG')
     elseif item == 'Lockpick' then
+        print(item)
         TriggerServerEvent('crafting','lockpick')
 
     end

@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: auto;
     overflow: auto;
+    height: auto;
 }
 
 .nui {
@@ -11,7 +11,6 @@
     color: #fff;
     width: inherit;
     max-width: 800px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
