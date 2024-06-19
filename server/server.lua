@@ -67,21 +67,8 @@ end
 
 RegisterNetEvent('crafting')
 
--- style = {
---     backgroundColor = '#141517',
---     color = '#C1C2C5',
---     ['.description'] = {
---       color = '#909296'
---     }
--- }
-
 AddEventHandler('crafting', function(nomeItem)
     
-    print('crafting : ', nomeItem);
-    print(HasAllItens('lockpick',source))
-    -- HasAllItens({'plastic','copper','iron'});
-
-
     if HasAllItens('WEAPON_ASSAULTRIFLE',source) and nomeItem == 'WEAPON_ASSAULTRIFLE' then
         exports.ox_inventory:RemoveItem(source, 'plastic', 10)
         exports.ox_inventory:RemoveItem(source, 'iron',25)

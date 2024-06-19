@@ -22,14 +22,29 @@ CreateThread(function()
             end
         end
         Wait(sleep)
-        
     end
-
 end)
 
+local function handleCrafting(item)
+    if item == 'Ak-47' then
+        TriggerServerEvent('crafting', 'WEAPON_ASSAULTRIFLE')
+    elseif item == 'Pistol_mk2' then
+        TriggerServerEvent('crafting', 'WEAPON_PISTOL_MK2')
+    elseif item == 'Munição de 9mm' then
+        TriggerServerEvent('crafting', 'ammo_9')
+    elseif item == 'Munição de Rifle' then
+        TriggerServerEvent('crafting', 'ammo_rifle2')
+    elseif item == 'Submetralhadora' then
+        TriggerServerEvent('crafting', 'WEAPON_SMG')
+    elseif item == 'Lockpick' then
+        TriggerServerEvent('crafting', 'lockpick')
+    end
+end
 
-local function toggleCraftBNG()
-    QBCore.Functions.Progressbar("craftbng", "Montando ...",15000, false, true, {
+local function toggleCraftBNG(item)
+    local isCanceled = false
+
+    QBCore.Functions.Progressbar("craftbng", "Montando ...", 15000, false, true, {
         disableMovement = true,
         disableCarMovement = true,
         canCancel = false,
@@ -39,46 +54,32 @@ local function toggleCraftBNG()
         animDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@',
         anim = 'machinic_loop_mechandplayer',
         flags = 1,
-    }
-    , {}, {}, function()
+    }, {}, {}, function() -- Done
+        if not isCanceled then
+            handleCrafting(item)
+            TriggerEvent('notify_bng_success')
+        end
     end, function() -- Cancel
-        QBCore.Functions.Notify("Canceled", "error")
-        return 'progressbarCancel'
+        isCanceled = true
+        QCBore.Functions.Notify("Canceled", "error")
+        TriggerEvent('notify_bng_error')
     end, 'fas fa-microchip')
 end
 
-
 RegisterNUICallback('fecharTela', function ()
-    SetNuiFocus(false,false)
+    SetNuiFocus(false, false)
 end)
 
 RegisterNetEvent('notify_bng_success', function()
-    -- corrigir erro de quando cancelar receber o item da mesma forma!
-    toggleCraftBNG()
-    Wait(15000)
     exports.qbx_core:Notify('Item criado com sucesso!', 'success', 6000, 'Verique na sua bolsa!', 'center-right')
 end)
 
 RegisterNetEvent('notify_bng_error', function()
-    exports.qbx_core:Notify('Você não possui os ingredientes necessários!', 'error', 6000, 'Verique seus ingredientes!', 'center-right')
+    exports.qbx_core:Notify('Você não possui os ingredientes necessários ou o processo foi cancelado!', 'error', 6000, 'Verique seus ingredientes!', 'center-right')
 end)
 
-RegisterNUICallback('itemCraft',function (data,cb)
-    local item = data.item;
+RegisterNUICallback('itemCraft', function (data, cb)
+    local item = data.item
     print("Item recebido:", item)
-    if item == 'Ak-47' then
-        TriggerServerEvent('crafting','WEAPON_ASSAULTRIFLE')
-    elseif item == 'Pistol_mk2' then
-        TriggerServerEvent('crafting','WEAPON_PISTOL_MK2')
-    elseif item == 'Munição de 9mm' then
-        TriggerServerEvent('crafting','ammo_9')
-    elseif item == 'Munição de Rifle' then
-        TriggerServerEvent('crafting','ammo_rifle2')
-    elseif item == 'Submetralhadora' then
-        TriggerServerEvent('crafting','WEAPON_SMG')
-    elseif item == 'Lockpick' then
-        print(item)
-        TriggerServerEvent('crafting','lockpick')
-
-    end
+    toggleCraftBNG(item)
 end)
