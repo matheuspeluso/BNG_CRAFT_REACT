@@ -16,6 +16,7 @@ const CardItem = (props) => {
   }
 
   function retornaLista() {
+    // pegando de volta os itens que estão na sessionstorage
     let dados = JSON.parse(sessionStorage.getItem('itensScript'))
     const item = dados[props.nomeItem];
     console.log('testeee ',JSON.stringify(dados))
