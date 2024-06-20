@@ -13,6 +13,6 @@ files {
 	'html/dist/**/*',
 }
 
-shared_script 'config.js'
+shared_script 'config/**/*'
 client_script 'client/**/*'
 server_script 'server/**/*'

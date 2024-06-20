@@ -70,7 +70,6 @@ const CardItem = (props) => {
   }
 
   function craftar(nomeItem) {
-    console.log(nomeItem)
     let name = nomeItem
     enviarDadosParaoJogo('itemCraft',{item: name});
   }

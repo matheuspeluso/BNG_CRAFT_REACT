@@ -1,5 +1,19 @@
 local QBCore = exports["qb-core"]:GetCoreObject()
 
+RegisterNetEvent('teste:requisicao', function(cb)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    local job = Player.PlayerData.job.name
+
+    local isPolice = false
+    if job == 'police' then
+       isPolice = true
+    end
+    TriggerClientEvent('teste:response', src,isPolice)
+
+end)
+
+
 local itens = {
     WEAPON_ASSAULTRIFLE = {
         ingredientes = {  -- Sub-tabela para os ingredientes

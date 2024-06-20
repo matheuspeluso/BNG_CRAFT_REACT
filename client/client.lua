@@ -1,6 +1,16 @@
 local QBCore = exports["qb-core"]:GetCoreObject()
 
 -- criação do blip
+
+isPolice = false
+
+RegisterNetEvent('teste:response', function(isCoxa)
+    isPolice = isCoxa
+    print("recebeu resposta",isPolice)
+end)
+
+
+
 CreateThread(function() 
     while true do
         sleep = 1000
@@ -11,14 +21,21 @@ CreateThread(function()
         local distance  = #(playerPos - makerPos)
 
         if distance < 7 then
+            
             sleep = 0
             DrawMarker(20, makerPos.x, makerPos.y, makerPos.z, 0, 0, 0, 0, 0, 0, 0.4, 0.4, 0.4, 255, 255, 255, 200, false, true, 2, true, false, false, false)
 
             if IsControlJustPressed(0,38) then
-                SendNUIMessage({
-                    type = 'open'
-                })
-                SetNuiFocus(true,true)
+                TriggerServerEvent('teste:requisicao')
+                
+                Wait(500)
+                print('is police dentro do trigger ',isPolice)
+                if isPolice then
+                    SendNUIMessage({
+                        type = 'open'
+                    })
+                    SetNuiFocus(true,true)
+                end
             end
         end
         Wait(sleep)
@@ -80,6 +97,5 @@ end)
 
 RegisterNUICallback('itemCraft', function (data, cb)
     local item = data.item
-    print("Item recebido:", item)
     toggleCraftBNG(item)
 end)
