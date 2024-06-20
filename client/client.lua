@@ -32,9 +32,12 @@ CreateThread(function()
                 print('is police dentro do trigger ',isPolice)
                 if isPolice then
                     SendNUIMessage({
-                        type = 'open'
+                        type = 'open',
+                        itens = ConfigItens
                     })
                     SetNuiFocus(true,true)
+
+                    print(json.encode())
                 end
             end
         end

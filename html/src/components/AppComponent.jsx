@@ -24,6 +24,7 @@ const AppComponent = () => {
     const handleMessage = (event) => {
       if (event.data.type === 'open') {
         setVisible(true);
+        sessionStorage.setItem('itensScript',JSON.stringify(event.data.itens))
       }
     };
 

@@ -3,48 +3,9 @@ import styles from './CardItem.module.css'
 // import useEnviarDadosParaJogo from '../hooks/useEnviarDadosParaJogo';
 
 const CardItem = (props) => {
-  const [itens, setItens] = useState({
-    'Ak-47': {
-      ingredientes: [
-        "30 und de Aço",
-        "10 und de Plastico",
-        "25 und de Ferro"
-      ]
-    },
-    'Pistol_mk2': {
-      ingredientes: [
-        "20 und de Aço",
-        "5 und de Plastico",
-        "15 und de Ferro"
-      ]
-    },
-    'Submetralhadora': { //WEAPON_SMG
-      ingredientes: [
-        "20 und de Aço",
-        "10 und de Plastico",
-        "15 und de Ferro"
-      ]
-    },
-    'Munição de 9mm': {
-      ingredientes: [
-        "12 und de Aço",
-        "6 und de Cobre"
-      ]
-    },
-
-    'Munição de Rifle': {
-      ingredientes: [
-        "12 und de Aço",
-        "6 und de Cobre"
-      ]
-    },
-    'Lockpick': {
-      ingredientes: [
-        "5 und de Aço",
-        "1 und de Cobre"
-      ]
-    },
-  });
+  // const [itens, setItens] = useState(
+  //   sessionStorage.getItem('itensScript')
+  // );
 
   function enviarDadosParaoJogo(path, dados) {
     let config = {
@@ -55,7 +16,9 @@ const CardItem = (props) => {
   }
 
   function retornaLista() {
-    const item = itens[props.nomeItem];
+    let dados = JSON.parse(sessionStorage.getItem('itensScript'))
+    const item = dados[props.nomeItem];
+    console.log('testeee ',JSON.stringify(dados))
     if (item) {
       return (
         <ul className={styles.ul_box}>
