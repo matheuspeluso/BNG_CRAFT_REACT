@@ -4,9 +4,10 @@ RegisterNetEvent('teste:requisicao', function(cb)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local job = Player.PlayerData.job.name
+    local permissao = ConfigItens.permission
 
     local isPolice = false
-    if job == 'police' then
+    if job == permissao then
        isPolice = true
     end
     TriggerClientEvent('teste:response', src,isPolice)
