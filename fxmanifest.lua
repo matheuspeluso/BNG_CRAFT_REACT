@@ -3,7 +3,7 @@ game 'gta5'
 
 description 'React App For FiveM'
 author 'Matheus Peluso'
-version '1.1.0'
+version '1.2.0'
 
 
 ui_page 'html/dist/index.html'
