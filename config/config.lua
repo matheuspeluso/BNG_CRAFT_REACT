@@ -1,5 +1,6 @@
 ConfigItens = {
     permission = 'police',
+    coords = vector3(-169.28, -1633.36, 33.60), -- troque a cordenada para onde você quer o seu craft!
     WEAPON_ASSAULTRIFLE = {
         name = 'Ak-47',
         img = 'https://cdn.discordapp.com/attachments/1240421138887213108/1251315557630869524/WEAPON_ASSAULTRIFLE_MK2.png?ex=66701c2d&is=666ecaad&hm=dc2ac969b776f0b9ff65603e06cf9e22e114c13278aeeebd3bc1cb8afe252685&',

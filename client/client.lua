@@ -16,7 +16,7 @@ CreateThread(function()
         sleep = 1000
         local ped = PlayerPedId()
         local playerPos = GetEntityCoords(ped)
-        local makerPos = vector3(1289.42, -1728.94, 53.34)
+        local makerPos = ConfigItens.coords
 
         local distance  = #(playerPos - makerPos)
 
