@@ -33,11 +33,11 @@ CreateThread(function()
                 if isPolice then
                     SendNUIMessage({
                         type = 'open',
-                        itens = ConfigItens
+                        itens = ConfigItens.craftList
                     })
                     SetNuiFocus(true,true)
 
-                    print(json.encode())
+                    -- print(json.encode())
                 end
             end
         end

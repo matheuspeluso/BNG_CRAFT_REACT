@@ -17,9 +17,9 @@ end)
 
 function HasAllItens(item, source)
     -- Verifica se o item existe na tabela de itens
-    if ConfigItens[item] then
+    if ConfigItens.craftList[item] then
         -- Obtém a lista de ingredientes para o item especificado
-        local ingredientes = ConfigItens[item].ingredientes
+        local ingredientes = ConfigItens.craftList[item].ingredientes
         
         -- Itera sobre cada ingrediente na lista
         for _, ingrediente in ipairs(ingredientes) do
