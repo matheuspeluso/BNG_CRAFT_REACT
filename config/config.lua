@@ -1,6 +1,6 @@
 ConfigItens = {
     permission = 'police',
-    coords = vector3(-169.28, -1633.36, 33.60), -- troque a cordenada para onde você quer o seu craft!
+    coords = vector3(-156.22, -1625.44, 33.65), -- troque a cordenada para onde você quer o seu craft!
 
     craftList = {
         WEAPON_ASSAULTRIFLE = {
@@ -113,6 +113,23 @@ ConfigItens = {
             ingredientesPt = {  -- tabela com os nomes do itens traduzidos, chamados no frontend
                 { item = "Cobre", quantidade = 15 },
                 { item = "Aço", quantidade = 20 },
+                { item = "Plastico", quantidade = 10 },
+            }
+        },
+
+        Colete = {
+            name = 'Colete',
+            spawName = 'armour',
+            spawQtd = 1,
+            img = 'https://cdn.discordapp.com/attachments/1240421138887213108/1254534269897019502/armour.png?ex=6679d796&is=66788616&hm=dec40f0cce55edcf593a98cee8f9b22d203e92d3158182fb5c395966488e4374&',
+            ingredientes = {  -- tabela com os nomes do itens igual ao da base
+                { item = "iron", quantidade = 10 },
+                { item = "steel", quantidade = 10 },
+                { item = "plastic", quantidade = 10 },
+            },
+            ingredientesPt = {  -- tabela com os nomes do itens traduzidos, chamados no frontend
+                { item = "Ferro", quantidade = 10 },
+                { item = "Aço", quantidade = 10 },
                 { item = "Plastico", quantidade = 10 },
             }
         },
