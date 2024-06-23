@@ -9,8 +9,6 @@ RegisterNetEvent('teste:response', function(isCoxa)
     print("recebeu resposta",isPolice)
 end)
 
-
-
 CreateThread(function() 
     while true do
         sleep = 1000
@@ -36,8 +34,6 @@ CreateThread(function()
                         itens = ConfigItens.craftList
                     })
                     SetNuiFocus(true,true)
-
-                    -- print(json.encode())
                 end
             end
         end
@@ -46,18 +42,18 @@ CreateThread(function()
 end)
 
 local function handleCrafting(item)
-    if item == 'Ak-47' then
-        TriggerServerEvent('crafting', 'WEAPON_ASSAULTRIFLE')
-    elseif item == 'Pistol_mk2' then
-        TriggerServerEvent('crafting', 'WEAPON_PISTOL_MK2')
-    elseif item == 'Munição de 9mm' then
-        TriggerServerEvent('crafting', 'ammo_9')
-    elseif item == 'Munição de Rifle' then
-        TriggerServerEvent('crafting', 'ammo_rifle2')
-    elseif item == 'Submetralhadora' then
-        TriggerServerEvent('crafting', 'WEAPON_SMG')
-    elseif item == 'Lockpick' then
-        TriggerServerEvent('crafting', 'lockpick')
+    local itemName = nil
+    for key, value in pairs(ConfigItens.craftList) do
+        if value.name == item then
+            itemName = key
+            break
+        end
+    end
+
+    if itemName then
+        TriggerServerEvent('crafting', itemName)
+    else
+        print('Item não encontrado no config.lua para crafting:', item)
     end
 end
 
