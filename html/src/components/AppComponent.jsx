@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styles from './AppComponent.module.css';
 import Title from './Title';
-import CardItem from './CardItem';
+import CardItem from './CardItem'; // Certifique-se de importar corretamente o componente CardItem
 
 const AppComponent = () => {
   const [visible, setVisible] = useState(false);
+  const [craftItems, setCraftItems] = useState({});
 
   function enviarDadosParaoJogo(path, dados) {
     let config = {
@@ -24,8 +25,8 @@ const AppComponent = () => {
     const handleMessage = (event) => {
       if (event.data.type === 'open') {
         setVisible(true);
-        // enviando itens por sessionStorage
-        sessionStorage.setItem('itensScript',JSON.stringify(event.data.itens))
+        setCraftItems(event.data.itens); // Definindo os itens recebidos do servidor
+        sessionStorage.setItem('itensScript', JSON.stringify(event.data.itens));
       }
     };
 
@@ -50,12 +51,9 @@ const AppComponent = () => {
         <div className={styles.container}>
           <div className={styles.nui}>
             <Title />
-            <CardItem nomeItem={'WEAPON_ASSAULTRIFLE'}/>
-            <CardItem nomeItem={'WEAPON_PISTOL_MK2'}/>
-            <CardItem nomeItem={'ammo_9'}/>
-            <CardItem nomeItem={'ammo_rifle2'}/>
-            <CardItem nomeItem={'WEAPON_SMG'} />
-            <CardItem nomeItem={'lockpick'}/>
+            {Object.keys(craftItems).map((itemName) => (
+              <CardItem key={itemName} nomeItem={itemName} data={craftItems[itemName]} />
+            ))}
             <button className={styles.btn_closeNUI} onClick={closeNui}>Fechar Nui</button>
           </div>
         </div>
