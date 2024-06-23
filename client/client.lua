@@ -41,6 +41,7 @@ CreateThread(function()
     end
 end)
 
+ -- parte refatorada para evitar muitos if e ficar iterativo e automatizado !
 local function handleCrafting(item)
     local itemName = nil
     for key, value in pairs(ConfigItens.craftList) do
