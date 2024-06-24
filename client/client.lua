@@ -7,6 +7,14 @@ isPolice = false
 RegisterNetEvent('teste:response', function(isCoxa)
     isPolice = isCoxa
     print("recebeu resposta",isPolice)
+    print('is police dentro do trigger ',isPolice)
+    if isPolice then
+        SendNUIMessage({
+            type = 'open',
+            itens = ConfigItens.craftList
+        })
+        SetNuiFocus(true,true)
+    end
 end)
 
 CreateThread(function() 
@@ -26,15 +34,6 @@ CreateThread(function()
             if IsControlJustPressed(0,38) then
                 TriggerServerEvent('teste:requisicao')
                 
-                Wait(500)
-                print('is police dentro do trigger ',isPolice)
-                if isPolice then
-                    SendNUIMessage({
-                        type = 'open',
-                        itens = ConfigItens.craftList
-                    })
-                    SetNuiFocus(true,true)
-                end
             end
         end
         Wait(sleep)

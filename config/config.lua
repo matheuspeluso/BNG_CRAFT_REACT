@@ -139,7 +139,6 @@ ConfigItens = {
                 { item = "Plastico", quantidade = 10 },
             }
         },
-
         
     },--fechamento do craftList
     
