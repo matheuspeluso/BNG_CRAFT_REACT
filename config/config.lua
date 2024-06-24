@@ -3,6 +3,10 @@ ConfigItens = {
     coords = vector3(-156.22, -1625.44, 33.65), -- troque a cordenada para onde você quer o seu craft!
     -- updaload das imagens podem ser feita em qualquer site que preste esse serviço , 
     -- mas a recomendação é pelo site : https://fivemanage.com/ ou pelo discord
+    vrp = false,
+    esx = false,
+    qbcore = false,
+    qbox = true,
 
     craftList = {
         WEAPON_ASSAULTRIFLE = {
