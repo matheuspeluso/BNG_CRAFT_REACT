@@ -1,10 +1,13 @@
 local QBCore = exports["qb-core"]:GetCoreObject()
 
 RegisterNetEvent('teste:requisicao', function(cb)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    local job = Player.PlayerData.job.name
-    local permissao = ConfigItens.permission
+
+    if ConfigItens.qbox or ConfigItens.qbcore then
+        src = source
+        Player = QBCore.Functions.GetPlayer(src)
+        job = Player.PlayerData.job.name
+        permissao = ConfigItens.permission
+    end
 
     local isPolice = false
     if job == permissao then
