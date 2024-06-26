@@ -6,8 +6,8 @@ isPolice = false
 
 RegisterNetEvent('teste:response', function(isCoxa)
     isPolice = isCoxa
-    print("recebeu resposta",isPolice)
-    print('is police dentro do trigger ',isPolice)
+    -- print("recebeu resposta",isPolice)
+    -- print('is police dentro do trigger ',isPolice)
     if isPolice then
         SendNUIMessage({
             type = 'open',
