@@ -77,7 +77,7 @@ local function toggleCraftBNG(item)
         end
     end, function() -- Cancel
         isCanceled = true
-        QCBore.Functions.Notify("Canceled", "error")
+        -- QCBore.Functions.Notify("Canceled", "error",6000)
         TriggerEvent('notify_bng_error')
     end, 'fas fa-microchip')
 end
@@ -87,11 +87,19 @@ RegisterNUICallback('fecharTela', function ()
 end)
 
 RegisterNetEvent('notify_bng_success', function()
-    exports.qbx_core:Notify('Item criado com sucesso!', 'success', 6000, 'Verique na sua bolsa!', 'center-right')
+    if ConfigItens.qbox then
+        exports.qbx_core:Notify('Item criado com sucesso!', 'success', 6000, 'Verique na sua bolsa!', 'center-right')
+    elseif ConfigItens.qbcore then
+        QBCore.Functions.Notify('Item criado com sucesso!', "primary", 6000)
+    end
 end)
 
 RegisterNetEvent('notify_bng_error', function()
-    exports.qbx_core:Notify('Você não possui os ingredientes necessários ou o processo foi cancelado!', 'error', 6000, 'Verique seus ingredientes!', 'center-right')
+    if ConfigItens.qbox then
+        exports.qbx_core:Notify('Você não possui os ingredientes necessários ou o processo foi cancelado!', 'error', 6000, 'Verique seus ingredientes!', 'center-right')
+    elseif Notify then
+        QBCore.Functions.Notify('Você não possui os ingredientes necessários ou o processo foi cancelado!', "primary", 6000)
+    end
 end)
 
 RegisterNUICallback('itemCraft', function (data, cb)
