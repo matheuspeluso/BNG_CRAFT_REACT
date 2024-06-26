@@ -73,7 +73,6 @@ local function toggleCraftBNG(item)
     }, {}, {}, function() -- Done
         if not isCanceled then
             handleCrafting(item)
-            TriggerEvent('notify_bng_success')
         end
     end, function() -- Cancel
         isCanceled = true
@@ -89,6 +88,7 @@ end)
 RegisterNetEvent('notify_bng_success', function()
     if ConfigItens.qbox then
         exports.qbx_core:Notify('Item criado com sucesso!', 'success', 6000, 'Verique na sua bolsa!', 'center-right')
+        print("print no client -- notify_bng_success !")
     elseif ConfigItens.qbcore then
         QBCore.Functions.Notify('Item criado com sucesso!', "primary", 6000)
     end
@@ -97,7 +97,8 @@ end)
 RegisterNetEvent('notify_bng_error', function()
     if ConfigItens.qbox then
         exports.qbx_core:Notify('Você não possui os ingredientes necessários ou o processo foi cancelado!', 'error', 6000, 'Verique seus ingredientes!', 'center-right')
-    elseif Notify then
+        print("print no client -- notify_bng_error !")
+    elseif ConfigItens.qbcore then
         QBCore.Functions.Notify('Você não possui os ingredientes necessários ou o processo foi cancelado!', "primary", 6000)
     end
 end)

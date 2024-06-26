@@ -5,8 +5,8 @@ ConfigItens = {
     -- mas a recomendação é pelo site : https://fivemanage.com/ ou pelo discord
     vrp = false,
     esx = false,
-    qbcore = true,
-    qbox = false,
+    qbcore = false,
+    qbox = true,
 
     craftList = {
 

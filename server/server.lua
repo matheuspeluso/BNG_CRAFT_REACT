@@ -21,15 +21,15 @@ end)
 function HasAllItems(item, source)
     if ConfigItens.craftList[item] then
         local ingredients = ConfigItens.craftList[item].ingredientes
-        for _, ingredient in ipairs(ingredients) do
-            -- verificação server para qbox e server para qbcore tb
-            if ConfigItens.qbox or ConfigItens.qbcore then
+        if ConfigItens.qbox or ConfigItens.qbcore then
+            for _, ingredient in ipairs(ingredients) do
+                -- verificação server para qbox e server para qbcore tb
                 if not exports['qb-inventory']:HasItem(source, ingredient.item, ingredient.quantidade) then
                     return false
                 end
             end
+            return true
         end
-        return true
     else
         return false
     end
@@ -38,6 +38,7 @@ end
 RegisterNetEvent('crafting')
 AddEventHandler('crafting', function(nomeItem)
     local playerSource = source
+    print(HasAllItems('Resultado de HasAllItems: ',nomeItem,playerSource))
     if HasAllItems(nomeItem, playerSource) then
         local ingredients = ConfigItens.craftList[nomeItem].ingredientes
         for _, ingredient in ipairs(ingredients) do
@@ -53,17 +54,19 @@ AddEventHandler('crafting', function(nomeItem)
 
         -- verificações de framework
         if ConfigItens.qbox then
+            print('framework qbox? ',ConfigItens.qbcore)
+            TriggerClientEvent('notify_bng_success', playerSource)
             exports.ox_inventory:AddItem(playerSource, spawName, spawQtd)
         elseif ConfigItens.qbcore then
+            print('framework qbcore? ',ConfigItens.qbcore)
             exports['qb-inventory']:AddItem(playerSource, spawName, spawQtd)
-        end
-         -- notify sucess para qbox e qbcore
-         if ConfigItens.qbox or ConfigItens.qbcore then
             TriggerClientEvent('notify_bng_success', playerSource)
         end
     else
         -- notify error para qbox e qbcore
         if ConfigItens.qbox or ConfigItens.qbcore then
+            print("entrou no error da qbcore e da qbox!")
+            print("qbox ? ",ConfigItens.qbox , "qbcore? ", ConfigItens.qbcore)
             TriggerClientEvent('notify_bng_error', playerSource)
         end
     end
