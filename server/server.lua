@@ -1,21 +1,42 @@
-local QBCore = exports["qb-core"]:GetCoreObject()
+if ConfigItens.qbox or ConfigItens.qbox then
+    local QBCore = exports["qb-core"]:GetCoreObject()
+end
+
+if ConfigItens.vrpex then
+    local Tunnel = module("vrp","lib/Tunnel")
+    local Proxy = module("vrp","lib/Proxy")
+    vRP = Proxy.getInterface("vRP")
+    vRPclient = Tunnel.getInterface("vRP")
+    src = {}
+    Tunnel.bindInterface(GetCurrentResourceName(), src)
+end
+
 
 RegisterNetEvent('teste:requisicao', function(cb)
-
-    -- verificação server para qbox e server para qbcore tb
+    
+    src = source
+    
     if ConfigItens.qbox or ConfigItens.qbcore then
-        src = source
         Player = QBCore.Functions.GetPlayer(src)
         job = Player.PlayerData.job.name
         permissao = ConfigItens.permission
+        
+        local isAllowed = false
+    
+        if job == permissao then
+           isAllowed = true
+        end
+        TriggerClientEvent('teste:response', src, isAllowed)
+    end
+
+    if ConfigItens.vrpex then
+        if vRP.hasPermission(vRP.getUserId(src), 'policia.permissao') then
+            print("você é policial!")
+            isAllowed = true
+        end
+        TriggerClientEvent('teste:response', src, isAllowed)
     end
     
-    local isAllowed = false
-
-    if job == permissao then
-       isAllowed = true
-    end
-    TriggerClientEvent('teste:response', src, isAllowed)
 end)
 
 function HasAllItems(item, source)

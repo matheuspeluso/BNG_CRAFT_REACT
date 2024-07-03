@@ -1,9 +1,9 @@
 fx_version 'cerulean'
 game 'gta5'
 
-description 'React App For FiveM'
+description 'Script de Craft'
 author 'Matheus Peluso'
-version '1.2.0'
+contact 'E-mail: matheuspeluso17@gmail.com - Discord: discord.gg/drUuZahyBS'
 
 
 ui_page 'html/dist/index.html'
@@ -14,5 +14,12 @@ files {
 }
 
 shared_script 'config/**/*'
-client_script 'client/**/*'
-server_script 'server/**/*'
+
+client_scripts {
+	'@vrp/lib/utils.lua',
+	'client/**/*'
+}
+server_scripts {
+	'@vrp/lib/utils.lua',
+	'server/**/*'
+}
