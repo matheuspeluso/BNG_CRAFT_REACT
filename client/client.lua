@@ -42,20 +42,21 @@ CreateThread(function()
             DrawMarker(20, makerPos.x, makerPos.y, makerPos.z, 0, 0, 0, 0, 0, 0, 0.4, 0.4, 0.4, 255, 255, 255, 200, false, true, 2, true, false, false, false)
 
             if IsControlJustPressed(0,38) then
+                -- está passando na vrpex!
                 TriggerServerEvent('teste:requisicao')
-                
             end
         end
         Wait(sleep)
     end
 end)
 
- -- parte refatorada para evitar muitos if e ficar iterativo e automatizado !
+-- parte refatorada para evitar muitos if e ficar iterativo e automatizado !
 local function handleCrafting(item)
     local itemName = nil
     for key, value in pairs(ConfigItens.craftList) do
         if value.name == item then
             itemName = key
+            print("item name recebeu a key ? ",itemName)
             break
         end
     end
@@ -90,6 +91,13 @@ local function toggleCraftBNG(item)
             -- QCBore.Functions.Notify("Canceled", "error",6000)
             TriggerEvent('notify_bng_error')
         end, 'fas fa-microchip')
+    end
+
+    if ConfigItens.vrpex then
+        -- progressbar teste vrpex 
+        TriggerEvent("progress", 10000, "testando progressbar!")
+
+
     end
 end
 

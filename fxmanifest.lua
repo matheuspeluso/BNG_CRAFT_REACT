@@ -13,7 +13,9 @@ files {
 	'html/dist/**/*',
 }
 
-shared_script 'config/**/*'
+shared_script{
+	'config/**/*'
+}
 
 client_scripts {
 	'@vrp/lib/utils.lua',

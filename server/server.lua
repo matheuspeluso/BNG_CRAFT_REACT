@@ -30,8 +30,8 @@ RegisterNetEvent('teste:requisicao', function(cb)
     end
 
     if ConfigItens.vrpex then
-        if vRP.hasPermission(vRP.getUserId(src), 'policia.permissao') then
-            print("você é policial!")
+        if vRP.hasPermission(vRP.getUserId(src), ConfigItens.permission) then
+            print("você é dono!")
             isAllowed = true
         end
         TriggerClientEvent('teste:response', src, isAllowed)
