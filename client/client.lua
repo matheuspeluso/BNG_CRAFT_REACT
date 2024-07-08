@@ -94,10 +94,20 @@ local function toggleCraftBNG(item)
     end
 
     if ConfigItens.vrpex then
-        -- progressbar teste vrpex 
-        TriggerEvent("progress", 10000, "testando progressbar!")
+        -- progressbar teste vrpex
+        local time = 10000;
 
+        local dict  = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@'
+        RequestAnimDict(dict)
+        while not HasAnimDictLoaded(dict) do
+        Citizen.Wait(100)
+        end
 
+        TaskPlayAnim(PlayerPedId(),dict, 'machinic_loop_mechandplayer', 8.0, 8.0, time, 49, -1, true, false, true)
+        TriggerEvent("progress", time, "Montando as peças...")
+        Wait(time)
+        
+        handleCrafting(item)
     end
 end
 

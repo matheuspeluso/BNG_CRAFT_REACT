@@ -1,5 +1,5 @@
 ConfigItens = {
-    permission = 'dono.permissao',
+    permission = 'admin.permissao',
     coords = vector3(-74.97, -815.34, 326.18), -- troque a cordenada para onde você quer o seu craft!
     -- updaload das imagens podem ser feita em qualquer site que preste esse serviço , 
     -- mas a recomendação é pelo site : https://fivemanage.com/ ou pelo discord
