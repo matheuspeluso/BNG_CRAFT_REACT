@@ -60,6 +60,19 @@ function HasAllItems(item, source)
             print("true do hasallitens!")
             return true
         end
+
+        if ConfigItens.vrpex then
+            for _, ingredient in ipairs(ingredients) do
+                local teste = vRP.getInventoryItemAmount(source, ingredient.item) == ingredient.quantidade
+                print("validou? ? ",teste)
+                if not vRP.getInventoryItemAmount(source, ingredient.item) == ingredient.quantidade then
+                    print("não tem os ingredintes da vrpex!")
+                    return false
+                end
+            end
+            print("tem o item !")
+            return true
+        end
     else
         return false
     end
